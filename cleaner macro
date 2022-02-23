@@ -1,4 +1,4 @@
-# In order to properly setup the labels, first need to run a macro which will clear all content in the label areas of the workbook, 
+# In order to properly setup the QR labels, first need to run a macro which will clear all content in the label areas of the workbook, 
 along with all the inserted text boxes, to have a clean working area. For this the following Macro was created:
 
 ``` 
@@ -32,3 +32,24 @@ Cleaner Macro
     Selection.Delete
 End Sub 
 ```
+There is another sheet as well destined for Weight labels, which would also have its own macro cleaner with the following code:
+
+'''
+Sub Cleanweightsheet()
+Cleanweightsheet Macro
+    Union(Range( _
+        "P10,P12,P17,P19,P24,P26,S26,S24,S19,S17,S12,S10,S5,S3,W3,W5,W10,W12,W17,W19,W24,W26,Z26,Z24,Z19,Z17,Z12,Z10,Z5,Z3,AD3,AD5" _
+        ), Range( _
+        "AD10,AD12,AD17,AD19,AD24,AD26,AG26,AG24,AG19,AG17,AG12,AG10,AG5,AG3,AK3,AK5,AK10,AK12,AK17,AK19,AK24,AK26,AN26,AN24,AN19,AN17,AN12,AN10,AN5,AN3,AR3,AR5" _
+        ), Range( _
+        "AR10,AR12,AR17,AR19,AR24,AR26,AU26,AU24,AU19,AU17,AU12,AU10,AU5,AU3,AY3,AY5,AY10,AY12,AY17,AY19,AY24,AY26,BB26,BB24,BB19,BB17,BB12,BB10,BB5,BB3,BF3,BF5" _
+        ), Range( _
+        "BF10,BF12,BF17,BF19,BF24,BF26,BI26,BI24,BI19,BI17,BI12,BI10,BI5,BI3,BM3,BM5,BM10,BM12,BM17,BM19,BM24,BM26,BP26,BP24,BP19,BP17,BP12,BP10,BP5,BP3,BT3,BT5" _
+        ), Range( _
+        "BT10,BT12,BT17,BT19,BT24,BT26,BW26,BW24,BW19,BW17,BW12,BW10,BW5,BW3,B10,B12,B17,B19,B24,B26,E26,E24,E19,E17,E12,E10,E5,E3,I3,I5,I10,I12" _
+        ), Range("I17,I19,I24,I26,L26,L24,L19,L17,L12,L10,L5,L3,P3,P5")).Select
+    Range("BW3").Activate
+
+    Selection.ClearContents
+End Sub
+'''
